@@ -1,7 +1,17 @@
 fn main() {
     let mut input = String::new();
 
-    let result = std::io::stdin().read_line(&mut input).unwrap();
+    std::io::stdin().read_line(&mut input).unwrap();
 
-    println!("{}", result - 1);
+    let t = input.trim().parse::<i32>().unwrap();
+
+    input.clear();
+
+    for _ in 0..t {
+        std::io::stdin().read_line(&mut input).unwrap();
+        let first = input.trim().chars().nth(0).unwrap();
+        let last = input.trim().chars().last().unwrap();
+        println!("{}{}", first, last);
+        input.clear();
+    }
 }
